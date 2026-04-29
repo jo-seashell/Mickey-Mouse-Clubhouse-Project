@@ -44,9 +44,34 @@
         });
     }
 
-    backButton.addEventListener("click", function () {
-        findfriend.classList.add("hidden");
-        interests.classList.remove("hidden");     // un hide interests
-        console.log("Back Button clicked");
-    });
+    if (backButton) {
+        backButton.addEventListener("click", function () {
+            findfriend.classList.add("hidden");
+            interests.classList.remove("hidden");     // un hide interests
+            console.log("Back Button clicked");
+        });
+    }
+
+    if (sendTextButton && textInput) {
+        sendTextButton.addEventListener("click", () => {
+            const messageText = textInput.value.trim();
+            if (messageText === "") return;
+    
+            const chatContainer = document.querySelector(".chat-container");
+    
+            // create new message bubble
+            const newDiv = document.createElement("div");
+            newDiv.classList.add("message", "sent");
+            newDiv.textContent = messageText;
+    
+            // add it to the chat
+            chatContainer.appendChild(newDiv);
+    
+            // clear input
+            textInput.value = "";
+    
+            // auto scroll to bottom
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+        });
+    }
 
