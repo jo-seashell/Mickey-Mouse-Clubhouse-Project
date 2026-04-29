@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const newChatButton = document.getElementById("newChat");
     const chatFriendButton = document.getElementById("chatFriend");
     const recordLiveButton = document.getElementById("recordLive");
-    const findFriendButton = document.getElementById("friendButton");
+    const findFriendButton = document.getElementById("saveBtn");
     const findfriend = document.getElementById("findfriend");
 
     if (newChatButton) {
