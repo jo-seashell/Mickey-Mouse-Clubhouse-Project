@@ -1,9 +1,14 @@
 document.addEventListener("DOMContentLoaded", function () {
+    // menu button references
     const newChatButton = document.getElementById("newChat");
     const chatFriendButton = document.getElementById("chatFriend");
     const recordLiveButton = document.getElementById("recordLive");
+
+    // interests and find friend button references
     const findFriendButton = document.getElementById("saveBtn");
     const findfriend = document.getElementById("findfriend");
+    const interests = document.getElementById("interests");
+
 
     if (newChatButton) {
         newChatButton.addEventListener("click", function () {
@@ -29,6 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (findFriendButton && findfriend) {
         findFriendButton.addEventListener("click", function () {
             findfriend.classList.remove("hidden");
+            interests.classList.add("hidden");     // hide interests
             console.log("Find Friend Button clicked");
         });
     }
