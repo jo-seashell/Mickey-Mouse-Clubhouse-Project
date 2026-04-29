@@ -58,22 +58,21 @@
         });
     }
 
-    sendTextButton.addEventListener("click", () => {
-        const text = textInput.value;
-      
-        if (text === "") {
-            //if textbox is empty, show error message
-            newMessage.textContent = "Please enter a message before sending.";
-            //will put popup text saying make new popup
-            
-        } else {m
-            // changes saved text to text input and then displays it in the text message area
-            //will work on making text box right now
-            //unhide newMessage box
-            savedText = text;
-            newMessage.textContent =`${savedText}`;
-            newMessage.classList.remove("hidden");
-        }
-
-    });
+    if (sendTextButton && textInput) {
+        sendTextButton.addEventListener("click", () => {
+            const text = textInput.value.trim();
+            if (!text) return;
+    
+            const chatContainer = document.querySelector(".chat-container");
+    
+            const newDiv = document.createElement("div");
+            newDiv.classList.add("message", "sent");
+            newDiv.textContent = text;
+    
+            chatContainer.appendChild(newDiv);
+    
+            textInput.value = "";
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+        });
+    }
 
