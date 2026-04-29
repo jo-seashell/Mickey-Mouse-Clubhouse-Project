@@ -8,6 +8,7 @@
     const findFriendButton = document.getElementById("saveBtn");
     const findfriend = document.getElementById("findfriend");
     const interests = document.getElementById("interests");
+    const backButton = document.getElementById("backBtn");
     
     function toggleMenu() {
         const menu = document.getElementById('sub-menu');
@@ -42,4 +43,10 @@
             console.log("Find Friend Button clicked");
         });
     }
+
+    backButton.addEventListener("click", function () {
+        findfriend.classList.add("hidden");
+        interests.classList.remove("hidden");     // un hide interests
+        console.log("Back Button clicked");
+    });
 
