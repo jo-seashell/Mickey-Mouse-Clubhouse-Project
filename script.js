@@ -60,18 +60,23 @@
 
     if (sendTextButton && textInput) {
         sendTextButton.addEventListener("click", () => {
-            const text = textInput.value.trim();
-            if (!text) return;
+            const messageText = textInput.value.trim();
+            if (messageText === "") return;
     
             const chatContainer = document.querySelector(".chat-container");
     
+            // create new message bubble
             const newDiv = document.createElement("div");
             newDiv.classList.add("message", "sent");
-            newDiv.textContent = text;
+            newDiv.textContent = messageText;
     
+            // add it to the chat
             chatContainer.appendChild(newDiv);
     
+            // clear input
             textInput.value = "";
+    
+            // auto scroll to bottom
             chatContainer.scrollTop = chatContainer.scrollHeight;
         });
     }
