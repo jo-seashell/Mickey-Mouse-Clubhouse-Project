@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function () {
+
     // menu button references
     const newChatButton = document.getElementById("newChat");
     const chatFriendButton = document.getElementById("chatFriend");
@@ -8,7 +8,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const findFriendButton = document.getElementById("saveBtn");
     const findfriend = document.getElementById("findfriend");
     const interests = document.getElementById("interests");
-
+    
+    function toggleMenu() {
+        const menu = document.getElementById('sub-menu');
+        menu.classList.toggle('show');
+    }
 
     if (newChatButton) {
         newChatButton.addEventListener("click", function () {
@@ -38,4 +42,4 @@ document.addEventListener("DOMContentLoaded", function () {
             console.log("Find Friend Button clicked");
         });
     }
-});
+
