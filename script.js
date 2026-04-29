@@ -9,6 +9,12 @@
     const findfriend = document.getElementById("findfriend");
     const interests = document.getElementById("interests");
     const backButton = document.getElementById("backBtn");
+
+    //convo references
+    const newMessage = document.getElementById("newMessageBox");
+    const sendTextButton = document.getElementById("sendTextBtn");
+    const textInput = document.getElementById("text-input");
+    let savedText = "";
     
     function toggleMenu() {
         const menu = document.getElementById('sub-menu');
