@@ -18,26 +18,60 @@
         </div>
 
         <form action="" method="">
-            <input type="checkbox" name=""> Sports <br>
-            <input type="checkbox" name=""> Music <br>
-            <input type="checkbox" name=""> Food <br>
-            <input type="checkbox" name=""> Travel <br>
-            <input type="checkbox" name=""> Movies <br>
-            <input type="checkbox" name=""> Technology <br>
-            <input type="checkbox" name=""> Art <br>
-            <input type="checkbox" name=""> Fashion <br>
-            <input type="checkbox" name=""> Fitness <br>
-            <input type="checkbox" name=""> Gaming <br>
-            <input type="checkbox" name=""> Books <br>
-            <input type="checkbox" name=""> Nature <br>
-            <input type="checkbox" name=""> Animals <br>
-            <input type="checkbox" name=""> Science <br>
+            <input type="checkbox" value="Sports"> Sports <br>
+            <input type="checkbox" value="Music"> Music <br>
+            <input type="checkbox" value="Food"> Food <br>
+            <input type="checkbox" value="Travel"> Travel <br>
+            <input type="checkbox" value="Movies"> Movies <br>
+            <input type="checkbox" value="Technology"> Technology <br>
+            <input type="checkbox" value="Art"> Art <br>
+            <input type="checkbox" value="Fashion"> Fashion <br>
+            <input type="checkbox" value="Fitness"> Fitness <br>
+            <input type="checkbox" value="Gaming"> Gaming <br>
+            <input type="checkbox" value="Books"> Books <br>
+            <input type="checkbox" value="Nature"> Nature <br>
+            <input type="checkbox" value="Animals"> Animals <br>
+            <input type="checkbox" value="Science"> Science <br>
         </form>
 
         <div> 
-            <button>Find a Friend</button>
+            <button type="button" id="saveBtn">Find a Friend</button>
         </div>
+        <script>
+            const saveBtn = document.getElementById('saveBtn');
+            const form = document.querySelector('form');
+            const savedList = document.getElementById('savedList');
 
+            window.onload = () => {
+                const savedItems = JSON.parse(localStorage.getItem('checkedItems')) || [];
+        
+                [...form.elements].forEach(cb => {
+                    if (savedItems.includes(cb.value)) {
+                        cb.checked = true;
+                    }
+                });
+                displaySavedItems(savedItems);
+            };
+
+            saveBtn.addEventListener('click', () => {
+                const checkedItems = [...form.elements]
+                    .filter(cb => cb.checked)
+                    .map(cb => cb.value);
+
+                localStorage.setItem('checkedItems', JSON.stringify(checkedItems));
+                displaySavedItems(checkedItems);
+                alert('Selection saved!');
+            });
+
+            function displaySavedItems(items) {
+                savedList.innerHTML = '';
+                items.forEach(item => {
+                    const li = document.createElement('li');
+                    li.textContent = item;
+                    savedList.appendChild(li);
+                });
+            }
+        </script> 
 
     </div> 
 </body>
