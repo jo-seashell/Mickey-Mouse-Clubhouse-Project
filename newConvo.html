@@ -58,6 +58,7 @@
             font-size: 14px;
             line-height: 1.4;
             max-width: 80%;
+            margin: 5px;
         }
 
         .received { background: #e9e9eb; align-self: flex-start; }
@@ -104,7 +105,7 @@
             position: relative;
         }
 
-        .message.received:hover::after {
+        .message.received:not(.has-selection):hover::after {
             content: "Highlight to translate";
             position: absolute;
             top: -18px;
