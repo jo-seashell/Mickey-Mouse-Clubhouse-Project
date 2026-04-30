@@ -96,7 +96,7 @@
         }
 
         .word::selection{
-            background: #48bb78;
+            background: #48bb7897;
         }
 
         .received {
@@ -108,7 +108,7 @@
         }
 
         .message.received:not(.has-selection):hover::after {
-            content: "Highlight to translate";
+            content: "Highlight words to translate";
             position: absolute;
             top: -18px;
             left: 10px;
@@ -126,6 +126,98 @@
             font-size: 14px;
             cursor: pointer;
             z-index: 1000;
+        }
+
+        .translate-popup {
+            position: absolute;
+            flex-direction: column;
+            gap: 8px;
+            min-width: 170px;
+            max-width: 220px;
+            padding: 12px;
+            background: white;
+            border: 1px solid #dcdfe6;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+            z-index: 1001;
+        }
+
+        .translate-popup:not(.hidden) {
+            display: flex;
+        }
+        .popup-pinyin div,
+        .popup-translation div {
+            margin-bottom: 4px;
+        }
+        .popup-pinyin {
+            font-size: 15px;
+            font-weight: 600;
+            color: #1f2937;
+        }
+
+        .popup-translation {
+            font-size: 14px;
+            color: #4b5563;
+            border-top: 1px solid #eef2f7;
+            padding-top: 6px;
+        }
+
+        .popup-save-btn {
+            padding: 8px 10px;
+            background: #48bb78;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .popup-save-btn:hover {
+            background: #38a169;
+        }
+
+        .popup-full-translation {
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eef2f7;
+        }
+
+        .popup-full-text {
+            font-size: 16px;
+            font-weight: 600;
+            color: #111827;
+            line-height: 1.4;
+        }
+
+        .popup-word-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .popup-word-row {
+            display: grid;
+            grid-template-columns: auto auto 1fr;
+            gap: 10px;
+            align-items: start;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        .popup-word-cn {
+            font-weight: 700;
+            color: #16a34a;
+            background: #dcfce7;
+            padding: 2px 6px;
+            border-radius: 6px;
+        }
+
+        .popup-word-py {
+            color: #6b7280;
+            font-style: italic;
+        }
+
+        .popup-word-en {
+            color: #374151;
         }
 
     </style>
@@ -158,6 +250,12 @@
 </div>
 
 <div id="translateBtn" class="translate-btn">Translate</div>
+
+<div id="translatePopup" class="translate-popup hidden">
+    <div id="popupFullTranslation" class="popup-full-translation"></div>
+    <div id="popupWordList" class="popup-word-list"></div>
+    <button id="saveWordBtn" class="popup-save-btn">Save to list</button>
+</div>
 
 <script src="script.js"></script>
 </body>
