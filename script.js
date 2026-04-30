@@ -59,25 +59,38 @@
     }
 
     if (sendTextButton && textInput) {
-        sendTextButton.addEventListener("click", () => {
+        //function for sending messages
+        function sendMessage() {
             const messageText = textInput.value.trim();
-            if (messageText === "") return;
-    
-            const chatContainer = document.querySelector(".chat-container");
-    
-            // create new message bubble
-            const newDiv = document.createElement("div");
-            newDiv.classList.add("message", "sent");
-            newDiv.textContent = messageText;
-    
-            // add it to the chat
-            chatContainer.appendChild(newDiv);
-    
-            // clear input
-            textInput.value = "";
-    
-            // auto scroll to bottom
-            chatContainer.scrollTop = chatContainer.scrollHeight;
+                if (messageText === "") return;
+        
+                const chatContainer = document.querySelector(".chat-container");
+        
+                // create new message bubble
+                const newDiv = document.createElement("div");
+                newDiv.classList.add("message", "sent");
+                newDiv.textContent = messageText;
+        
+                // add it to the chat
+                chatContainer.appendChild(newDiv);
+        
+                // clear input
+                textInput.value = "";
+        
+                // auto scroll to bottom
+                chatContainer.scrollTop = chatContainer.scrollHeight;
+        }
+        //send text when send button clicked
+        sendTextButton.addEventListener("click", sendMessage);
+
+        //send text when enter key is pressed
+        textInput.addEventListener("keypress", function (e) {
+            if (e.key === "Enter") {
+                e.preventDefault();
+                sendMessage();
+            }
         });
+
     }
 
+    
