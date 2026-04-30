@@ -81,7 +81,7 @@
 
         .input-area button {
             padding: 10px 20px;
-            background: #3b82f6; /* Your primary blue */
+            background: #3b82f6;
             color: white;
             border: none;
             border-radius: 8px;
@@ -89,8 +89,26 @@
         }
 
         .word:hover{
-            text-decoration: underline;
-            text-decoration-color: gray;
+            cursor: text;
+            text-decoration: underline dotted;
+            text-underline-offset: 3px;
+        }
+
+        .received {
+            position: relative;
+        }
+
+        .translate-btn {
+            position: absolute;
+            display: none;
+            pointer-events: auto;
+            padding: 6px 10px;
+            background: #666;
+            color: rgba(255, 255, 255, 0.497);
+            border-radius: 6px;
+            font-size: 14px;
+            cursor: pointer;
+            z-index: 1000;
         }
 
     </style>
@@ -105,9 +123,14 @@
 
     <div class="chat-frame">
         <div class="chat-container">
-            <div class="message received hidden"><span class="word">早上好</span>!<span class="word">现在</span><span class="word">我</span><span class="word">有</span><span class="word">冰淇淋</span></div>
+            
+            <div class="message received hidden">
+                <span class="word">早上好</span><span class="word">现在</span><span class="word">我</span><span class="word">有</span><span class="word">冰淇淋</span>
+            </div>
 
-            <div class="message received hidden"><span class="word">但是</span>,<span class="word">我</span><span class="word">最</span><span class="word">喜欢</span><span class="word">速度与激情9!</div>
+            <div class="message received hidden">
+                <span class="word">但是</span>,<span class="word">我</span><span class="word">最</span><span class="word">喜欢</span><span class="word">速度与激情9!</span>
+            </div>
 
         </div>
         <div class="input-area">
@@ -117,6 +140,7 @@
     </div>
 </div>
 
+<div id="translateBtn" class="translate-btn">Highlight to translate</div>
 <script src="script.js"></script>
 </body>
 </html>
