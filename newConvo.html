@@ -63,6 +63,8 @@
         .received { background: #e9e9eb; align-self: flex-start; }
         .sent { background: #3b82f6; color: white; align-self: flex-end; }
 
+        
+
         .input-area {
             padding: 15px;
             background: white;
@@ -98,17 +100,18 @@
             position: relative;
         }
 
-        .translate-btn {
+        .message.received {
+            position: relative;
+        }
+
+        .message.received:hover::after {
+            content: "Highlight to translate";
             position: absolute;
-            display: none;
-            pointer-events: auto;
-            padding: 6px 10px;
-            background: #666;
-            color: rgba(255, 255, 255, 0.497);
-            border-radius: 6px;
-            font-size: 14px;
-            cursor: pointer;
-            z-index: 1000;
+            top: -18px;
+            left: 10px;
+            font-size: 12px;
+            color: #666;
+            opacity: 0.8;
         }
 
     </style>
@@ -140,7 +143,6 @@
     </div>
 </div>
 
-<div id="translateBtn" class="translate-btn">Highlight to translate</div>
 <script src="script.js"></script>
 </body>
 </html>

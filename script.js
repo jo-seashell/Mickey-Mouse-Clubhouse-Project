@@ -106,36 +106,7 @@
         });
 
         //translation
-        const btn = document.getElementById("translateBtn");
-        let activeWord = null;
-
-        document.querySelectorAll(".word").forEach(word => {
-        word.addEventListener("mouseenter", () => {
-            activeWord = word;
-
-            const rect = word.getBoundingClientRect();
-            btn.style.left = window.scrollX + rect.left + "px";
-            btn.style.top = window.scrollY + rect.top - 40 + "px";
-            btn.style.display = "block";
-            btn.dataset.text = word.textContent;
-        });
-        });
-
-        document.addEventListener("mousemove", (e) => {
-        if (!activeWord || btn.style.display !== "block") return;
-
-        const overWord = activeWord.contains(e.target);
-        const overBtn = btn.contains(e.target);
-
-        if (!overWord && !overBtn) {
-            btn.style.display = "none";
-            activeWord = null;
-        }
-        });
-
-        btn.addEventListener("click", () => {
-        alert("Translate: " + btn.dataset.text);
-        });
+        
 
     }
 
