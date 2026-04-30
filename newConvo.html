@@ -61,8 +61,6 @@
         }
 
         .received { background: #e9e9eb; align-self: flex-start; }
-        
-
         .sent { background: #3b82f6; color: white; align-self: flex-end; }
 
         .input-area {
@@ -102,11 +100,17 @@
 
     <div class="chat-frame">
         <div class="chat-container">
-            <div class="message received">早上好! 现在我有冰淇淋</div>
-            <div class="message sent">我很喜欢冰淇淋!</div>
-            <div class="message received">但是,我最喜欢速度与激情9!</div>
+            <div class="message received hidden">
+                <span class="word">早上好</span>!现在我有<span class="word">冰淇淋</span>
+            </div>
 
+            <div class="message received hidden">
+                但是,我最喜欢<span class="word">速度与激情9</span>!
+            </div>
         </div>
+
+        
+
         <div class="input-area">
             <input id="text-input" type="text" placeholder="Type a message...">
             <button id="sendTextBtn">Send</button>
