@@ -106,7 +106,58 @@
         });
 
         //translation
-        
+        const translateBtn = document.getElementById("translateBtn");
+
+        function hideTranslateButton() {
+            translateBtn.style.display = "none";
+            translateBtn.dataset.text = "";
+        }
+
+        document.addEventListener("selectionchange", () => {
+        const selection = window.getSelection();
+        const selectedText = selection.toString().trim();
+        const hasText = selectedText.length > 0;
+
+        document.querySelectorAll(".message.received").forEach(msg => {
+            msg.classList.remove("has-selection");
+        });
+
+        if (!hasText || !selection.rangeCount) {
+            hideTranslateButton();
+            return;
+        }
+
+        const range = selection.getRangeAt(0);
+        const container = range.commonAncestorContainer;
+        const el = container.nodeType === 1 ? container : container.parentElement;
+        const message = el ? el.closest(".message.received") : null;
+
+        if (!message) {
+            hideTranslateButton();
+            return;
+        }
+
+        message.classList.add("has-selection");
+
+        const rect = range.getBoundingClientRect();
+        if (!rect.width && !rect.height) {
+            hideTranslateButton();
+            return;
+        }
+
+        translateBtn.dataset.text = selectedText;
+        translateBtn.style.left = `${window.scrollX + rect.left}px`;
+        translateBtn.style.top = `${window.scrollY + rect.top - 40}px`;
+        translateBtn.style.display = "block";
+        });
+
+        if (translateBtn) {
+            translateBtn.addEventListener("click", () => {
+                alert("Translate: " + translateBtn.dataset.text);
+                hideTranslateButton();
+                window.getSelection().removeAllRanges();
+            });
+        }
 
     }
 

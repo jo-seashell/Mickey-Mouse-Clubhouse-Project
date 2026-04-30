@@ -58,13 +58,11 @@
             font-size: 14px;
             line-height: 1.4;
             max-width: 80%;
-            margin: 5px;
+            margin: 10px;
         }
 
         .received { background: #e9e9eb; align-self: flex-start; }
         .sent { background: #3b82f6; color: white; align-self: flex-end; }
-
-        
 
         .input-area {
             padding: 15px;
@@ -97,6 +95,10 @@
             text-underline-offset: 3px;
         }
 
+        .word::selection{
+            background: #48bb78;
+        }
+
         .received {
             position: relative;
         }
@@ -113,6 +115,17 @@
             font-size: 12px;
             color: #666;
             opacity: 0.8;
+        }
+        #translateBtn {
+            position: absolute;
+            display: none;
+            padding: 6px 10px;
+            background: #48bb78;
+            color: white;
+            border-radius: 6px;
+            font-size: 14px;
+            cursor: pointer;
+            z-index: 1000;
         }
 
     </style>
@@ -143,6 +156,8 @@
         </div>
     </div>
 </div>
+
+<div id="translateBtn" class="translate-btn">Translate</div>
 
 <script src="script.js"></script>
 </body>
