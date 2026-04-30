@@ -11,6 +11,7 @@
     const backButton = document.getElementById("backBtn");
 
     //convo references
+    //might have to change some
     const newMessage = document.getElementById("newMessageBox");
     const sendTextButton = document.getElementById("sendTextBtn");
     const textInput = document.getElementById("text-input");
@@ -79,7 +80,20 @@
         
                 // auto scroll to bottom
                 chatContainer.scrollTop = chatContainer.scrollHeight;
+
+                // unhides messages other person "sends"
+                const receivedMessages = document.querySelectorAll(".received.hidden");
+
+                receivedMessages.forEach((msg, index) => {
+                    setTimeout(() => {
+                        chatContainer.appendChild(msg);   // move it to the bottom
+                        msg.classList.remove("hidden");   // then show it
+                        chatContainer.scrollTop = chatContainer.scrollHeight;
+                    }, 800 * (index + 1));
+                });
+
         }
+        
         //send text when send button clicked
         sendTextButton.addEventListener("click", sendMessage);
 
