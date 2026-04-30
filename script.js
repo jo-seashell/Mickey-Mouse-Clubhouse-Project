@@ -9,6 +9,7 @@
     const findfriend = document.getElementById("findfriend");
     const interests = document.getElementById("interests");
     const backButton = document.getElementById("backBtn");
+    const startChatButton = document.getElementById("startChatBtn");
 
     //convo references
     //might have to change some
@@ -56,6 +57,13 @@
             findfriend.classList.add("hidden");
             interests.classList.remove("hidden");     // un hide interests
             console.log("Back Button clicked");
+        });
+    }
+
+    if (startChatButton) {
+        startChatButton.addEventListener("click", function () {
+            console.log("Start Chat Button clicked");
+            window.location.href = "newConvo.html";
         });
     }
 
