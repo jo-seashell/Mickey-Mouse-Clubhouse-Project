@@ -69,10 +69,12 @@ p { margin: 0; color: #606266; }
 .top-container {
     display: flex;
     justify-content: space-between;
+    align-items: center; 
 
 }
 .top-container h1{
     font-size: 60px;
+    margin-bottom: 0px;
     margin-bottom: 0px;
 
 }
@@ -83,5 +85,68 @@ p { margin: 0; color: #606266; }
 
 .hidden {
     display: none;
+}
+#backBtn {
+    height: fit-content;    /* Stops the vertical stretching */
+    padding: 10px 20px;
+    border-radius: 30px;
+    border: 1px solid #dcdfe6;
+    background: white;
+    font-weight: 600;
+    cursor: pointer;
+}
+.hidden {
+    display: none;
+}
+
+.vocab-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    text-align: left !important;
+}
+
+.vocab-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 8px;
+    margin-bottom: 8px;
+}
+
+.chinese {
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.pinyin {
+    color: #666;
+    font-style: italic;
+}
+
+.english {
+    color: #007AFF;
+    font-weight: 500;
+}
+
+/*Clear All Words Button (Red button at bottom)*/
+#clearStorage {
+    background-color: #ff4d4f;
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 20px;
 }
 

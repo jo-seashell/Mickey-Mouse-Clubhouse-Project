@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review Vocabulary</title>
+</head>
+<body>
+<div class="app-container">
+    <div class="top-container">
+        <h1>Vocabulary Review</h1>
+        <button onclick="window.location.href='index.html'" id="backBtn">← Back</button>
+    </div>
+
+    <div id="vocabList" class="vocab-container">
+        <!-- Words will be injected here by JavaScript -->
+    </div>
+
+    <button id="clearStorage" style="margin-top: 20px; background: #ff4444; color: white; border: none; padding: 10px; border-radius: 5px; cursor: pointer;">
+        Clear All Words
+    </button>
+</div>
+
+<script>
+    const vocabList = document.getElementById("vocabList");
+    const clearBtn = document.getElementById("clearStorage");
+
+    function displayWords() {
+        const words = JSON.parse(localStorage.getItem("vocabularyList")) || [];
+        
+        if (words.length === 0) {
+            vocabList.innerHTML = "<p>No words saved yet. Start chatting!</p>";
+            return;
+        }
+
+        vocabList.innerHTML = words.map(item => `
+            <div class="feature-box card">
+                <div class="vocab-row">
+                    <strong class="chinese">${item.text}</strong>
+                    <span class="pinyin">${Array.isArray(item.pinyin) ? item.pinyin.join(' ') : item.pinyin}</span>
+                </div>
+                <div class="english">${Array.isArray(item.translation) ? item.translation.join(', ') : item.translation}</div>
+            </div>
+        `).join("");
+    }
+
+    clearBtn.addEventListener("click", () => {
+        if(confirm("Are you sure you want to delete your saved words?")) {
+            localStorage.removeItem("vocabularyList");
+            displayWords();
+        }
+    });
+
+    displayWords();
+</script>
+</body>
+</html>
