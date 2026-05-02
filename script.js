@@ -11,6 +11,140 @@
     const backButton = document.getElementById("backBtn");
     const startChatButton = document.getElementById("startChatBtn");
 
+
+    // used to list static list of friendes for newChat
+    const friends = [
+    {
+        name: "Miranda",
+        language: "Chinese",
+        interests: ["Music", "Food", "Travel"]
+    },
+    {
+        name: "Wei",
+        language: "Mandarin Chinese",
+        interests: ["Gaming", "Technology", "Movies"]
+    },
+    {
+        name: "Amina",
+        language: "Chinese",
+        interests: ["Books", "Food", "Art"]
+    },
+    {
+        name: "Sofia",
+        language: "Italian",
+        interests: ["Fashion", "Music", "Travel"]
+    },
+    {
+        name: "Hiro",
+        language: "Chinese",
+        interests: ["Movies", "Gaming", "Food"]
+    },
+    {
+        name: "Camille",
+        language: "Chinese",
+        interests: ["Art", "Movies", "Books"]
+    },
+    {
+        name: "Mateo",
+        language: "Chinese",
+        interests: ["Sports", "Nature", "Music"]
+    },
+    {
+        name: "Priya",
+        language: "Chinese",
+        interests: ["Science", "Technology", "Fitness"]
+    },
+    {
+        name: "Minji",
+        language: "Chinese",
+        interests: ["Music", "Fashion", "Food"]
+    },
+    {
+        name: "Daniel",
+        language: "Chinese",
+        interests: ["Books", "Travel", "Technology"]
+    }
+    ];
+    // gets friendList from newChat, then iterate over prev defined list
+    function displayFriends() {
+        const friendList = document.getElementById("friendList");
+
+        if (!friendList) return;
+
+        friendList.innerHTML = "";
+
+        const selectedInterests = JSON.parse(localStorage.getItem("checkedItems")) || [];
+
+        const sortedFriends = friends.slice().sort(function(a, b) {
+            const aMatches = a.interests.filter(function(interest) {
+                return selectedInterests.includes(interest);
+            }).length;
+
+            const bMatches = b.interests.filter(function(interest) {
+                return selectedInterests.includes(interest);
+            }).length;
+
+            return bMatches - aMatches;
+    });
+
+    sortedFriends.forEach(function(friend) {
+        const matchCount = friend.interests.filter(function(interest) {
+            return selectedInterests.includes(interest);
+        }).length;
+
+        const friendItem = document.createElement("li");
+
+        friendItem.innerHTML = `
+            <label class="friendOption">
+                <input type="checkbox" name="selectedFriend" value="${friend.name}">
+                <span class="friend-name">${friend.name}</span>
+            </label>
+            <p>Language: ${friend.language}</p>
+            <p>Interests: ${friend.interests.join(", ")}</p>
+            <p>Matching interests: ${matchCount}</p>
+        `;
+
+        friendList.appendChild(friendItem);
+    });
+}
+
+displayFriends();
+
+
+// used in newConvo to display selected user name
+const selectedFriend = document.getElementById("selectedName")
+if (selectedFriend){
+    selectedFriend.textContent = localStorage.getItem("selectedFriend") || "friend"
+}
+
+if (startChatButton){
+    startChatButton.addEventListener("click", function(){
+        const selectedFriendInput = document.querySelector('input[name="selectedFriend"]:checked');
+
+        if (!selectedFriendInput) {
+            alert("Please select a friend first.");
+            return;
+
+        }
+        localStorage.setItem("selectedFriend", selectedFriendInput.value);
+        window.location.href = "newConvo.html";
+    });
+}
+
+// local storage -> checkedItems
+// used to get one interest that user selected in checkbox and displays it
+const myInterest = document.getElementById("commonInterest");
+if (myInterest){
+    const selectedInterests = JSON.parse(localStorage.getItem("checkedItems")) || [];
+    myInterest.textContent = selectedInterests[0] || "something fun";
+
+}
+
+
+
+
+
+
     //convo references
     //might have to change some
     const newMessage = document.getElementById("newMessageBox");
@@ -60,12 +194,7 @@
         });
     }
 
-    if (startChatButton) {
-        startChatButton.addEventListener("click", function () {
-            console.log("Start Chat Button clicked");
-            window.location.href = "newConvo.html";
-        });
-    }
+    
 
     if (sendTextButton && textInput) {
         //function for sending messages
@@ -321,5 +450,7 @@
         });
 
     }
+
+
 
         
