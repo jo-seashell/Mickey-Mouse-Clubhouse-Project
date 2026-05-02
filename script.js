@@ -15,6 +15,11 @@ const startChatButton = document.getElementById("startChatBtn");
 const sendTextButton = document.getElementById("sendTextBtn");
 const textInput = document.getElementById("text-input");
 const reviewBox = document.querySelector(".feature-box.review");
+const translateBtn = document.getElementById("translateBtn");
+const translatePopup = document.getElementById("translatePopup");
+const popupFullTranslation = document.getElementById("popupFullTranslation");
+const popupWordList = document.getElementById("popupWordList");
+const saveWordBtn = document.getElementById("saveWordBtn");
 
 
     // used to list static list of friendes for newChat
@@ -150,18 +155,6 @@ if (myInterest){
 
 
 
-    //convo references
-    //might have to change some
-    const newMessage = document.getElementById("newMessageBox");
-    const sendTextButton = document.getElementById("sendTextBtn");
-    const textInput = document.getElementById("text-input");
-    let savedText = "";
-    
-    function toggleMenu() {
-        const menu = document.getElementById('sub-menu');
-        menu.classList.toggle('show');
-    }
-
 //Manages moving between different HTML pages
 function toggleMenu() {
     const menu = document.getElementById('sub-menu');
@@ -172,7 +165,6 @@ const navLinks = [
     { btn: newChatButton, url: "newChat.html" },
     { btn: chatFriendButton, url: "chatFriend.html" },
     { btn: recordLiveButton, url: "recordLive.html" },
-    { btn: startChatButton, url: "newConvo.html" },
     { btn: reviewBox, url: "review.html" }
 ];
 
@@ -194,7 +186,7 @@ if (findFriendButton && findfriend) {
 if (backButton) {
     backButton.addEventListener("click", () => {
         findfriend.classList.add("hidden");
-        interests.remove("hidden"); // Note: should likely be interests.classList.remove
+        interests.classList.remove("hidden");
     });
 }
 
