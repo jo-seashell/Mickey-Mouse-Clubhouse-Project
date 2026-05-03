@@ -22,6 +22,7 @@ const popupWordList = document.getElementById("popupWordList");
 const saveWordBtn = document.getElementById("saveWordBtn");
 
 
+
     // used to list static list of friendes for newChat
     const friends = [
     {
@@ -393,5 +394,27 @@ if (saveWordBtn) {
 
         translatePopup.classList.add("hidden");
         window.getSelection().removeAllRanges(); // Clear highlight after saving
+    });
+}
+
+const RtnHomeBtn = document.getElementById("RtnHomeBtn");
+const ReviewBtn = document.getElementById("ReviewBtn");
+
+if(RtnHomeBtn){
+    RtnHomeBtn.addEventListener("click", () => {
+            window.location.href = "index.html";
+    });
+}
+
+if(ReviewBtn){
+    ReviewBtn.addEventListener("click", () => {
+        window.location.href = "review.html";
+    });
+}
+
+const backHomeBtn = document.getElementById("backHomeBtn");
+if(backHomeBtn){
+    backHomeBtn.addEventListener("click", () => {
+            window.location.href = "index.html";
     });
 }
