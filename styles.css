@@ -96,16 +96,6 @@ p { margin: 0; color: #606266; }
     cursor: pointer;
 }
 
-#startChatBtn {
-    height: fit-content;    
-    padding: 10px 20px;
-    border-radius: 30px;
-    border: 1px solid #dcdfe6;
-    background: white;
-    font-weight: 600;
-    cursor: pointer;
-}
-
 #RtnHomeBtn {
     height: fit-content;    
     padding: 10px 20px;
@@ -127,16 +117,6 @@ p { margin: 0; color: #606266; }
 }
 
 #backHomeBtn {
-    height: fit-content;    
-    padding: 10px 20px;
-    border-radius: 30px;
-    border: 1px solid #dcdfe6;
-    background: white;
-    font-weight: 600;
-    cursor: pointer;
-}
-
-#saveBtn {
     height: fit-content;    
     padding: 10px 20px;
     border-radius: 30px;
