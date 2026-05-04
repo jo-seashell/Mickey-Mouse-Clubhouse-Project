@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<div class="app-container">
+<div class="app-container home-screen">
     
     <div class="top-container">
         <div>
@@ -18,30 +18,59 @@
     </div>
 
 
-    <div class="feature-box streak">
-        <h2>Weekly Calendar Streak</h2>
-        <p>🔥 12 Days — You're killing it!</p>
+    <div class="feature-box streak home-card">
+        <div class="card-header-row">
+            <h2>Weekly Streak</h2>
+            <span class="streak-pill">12 days</span>
+        </div>
+        <div class="calendar-row" aria-label="7 day streak calendar">
+            <div class="calendar-day complete">M</div>
+            <div class="calendar-day complete">T</div>
+            <div class="calendar-day complete">W</div>
+            <div class="calendar-day complete">T</div>
+            <div class="calendar-day complete">F</div>
+            <div class="calendar-day today">S</div>
+            <div class="calendar-day">S</div>
+        </div>
     </div>
 
-    <div class="feature-box dashboard">
-        <h2>Dashboard</h2>
-        <p>Language: <strong>Mandarin Chinese</strong></p>
-        <span class="status">● 5 Friends Online</span>
+    <div class="feature-box dashboard home-card">
+        <h2>Language</h2>
+        <p class="language-name">Mandarin Chinese</p>
+        <div class="online-row">
+            <div class="avatar-stack" aria-label="Friends online">
+                <div class="avatar">M</div>
+                <div class="avatar">W</div>
+                <div class="avatar">A</div>
+                <div class="avatar">H</div>
+                <div class="avatar more">+1</div>
+            </div>
+            <span class="status">● 5 Friends Online</span>
+        </div>
     </div>
 
-    <div class="feature-box convo" onclick="toggleMenu()">
-        <h2>Conversation</h2>
-        <p>Click to practice speaking</p>
+    <div class="home-action-grid">
+        <div class="feature-box convo action-box" onclick="toggleMenu()">
+            <div>
+                <h2>Conversation</h2>
+                <p>Start practicing</p>
+            </div>
+            <span class="arrow">›</span>
+        </div>
+
+        <div class="feature-box review action-box">
+            <div>
+                <h2>Review</h2>
+                <p>Study saved words</p>
+            </div>
+            <span class="arrow">›</span>
+        </div>
     </div>
 
-    <div id="sub-menu" class="sub-container">
-        <button id="newChat">Start a New chat</button>
+    <div id="sub-menu" class="sub-container home-menu">
+        <button id="newChat">Start a New Chat</button>
         <button id="chatFriend">Chat with a Friend</button>
         <button id="recordLive">Live Recording</button>
-    </div>
-
-    <div class="feature-box review">
-        <h2>Review</h2>
     </div>
 
     <footer>
