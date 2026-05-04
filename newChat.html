@@ -7,71 +7,204 @@
     <title>Chat With Friend Dashboard</title>
 </head>
 <style>
+    /* Page-specific styling for newChat.html */
+    body {
+        padding: 20px;
+    }
+
+    .chat-setup-screen {
+        max-width: 430px;
+        gap: 16px;
+    }
+
+    .page-title {
+        margin: 0;
+        font-size: 2.4rem;
+        line-height: 1;
+        color: #111827;
+    }
+
+    .page-subtitle {
+        margin-top: 8px;
+        font-size: 1rem;
+        color: #6b7280;
+    }
+
+    .setup-card {
+        background: white;
+        border: 1px solid #dcdfe6;
+        border-radius: 16px;
+        padding: 18px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    }
+
+    .setup-card h2 {
+        margin-bottom: 12px;
+    }
+
+    .interest-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    .interest-option {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 12px;
+        border: 1px solid #e5e7eb;
+        border-radius: 999px;
+        background: #f9fafb;
+        font-weight: 600;
+        color: #374151;
+        cursor: pointer;
+    }
+
+    .interest-option:hover {
+        border-color: #48bb78;
+        background: #f0fdf4;
+    }
+
+    .interest-option input {
+        accent-color: #48bb78;
+    }
+
+    .button-row {
+        display: flex;
+        gap: 10px;
+        margin-top: 16px;
+    }
+
+    .primary-btn,
+    .secondary-btn {
+        flex: 1;
+        padding: 12px 14px;
+        border-radius: 999px;
+        font-weight: 800;
+        cursor: pointer;
+        border: 1px solid #dcdfe6;
+    }
+
+    .primary-btn {
+        background: #48bb78;
+        color: white;
+        border-color: #48bb78;
+    }
+
+    .secondary-btn {
+        background: white;
+        color: #374151;
+    }
+
+    .primary-btn:hover {
+        background: #38a169;
+    }
+
+    .secondary-btn:hover {
+        background: #f3f4f6;
+    }
+
     #friendList {
-    list-style: none;
-    padding-left: 0;
-    margin: 0;
-}
+        list-style: none;
+        padding-left: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
 
     #friendList li {
-    margin-bottom: 20px;
-    padding-bottom: 16px;
-    border-bottom: 1px solid #ddd;
+        margin: 0;
+        padding: 14px;
+        border: 1px solid #e5e7eb;
+        border-radius: 14px;
+        background: #ffffff;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.04);
     }
 
     .friendOption {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 8px;
+        cursor: pointer;
+    }
+
+    .friendOption input {
+        accent-color: #3b82f6;
+    }
 
     .friend-name {
-    font-size: 1.5rem;
-    font-weight: bold;
-}
+        font-size: 1.25rem;
+        font-weight: 900;
+        color: #111827;
+    }
 
+    #friendList p {
+        margin-top: 4px;
+        font-size: 0.95rem;
+    }
+
+    .findfriend-actions {
+        display: flex;
+        gap: 10px;
+    }
+
+    @media (max-width: 420px) {
+        .interest-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .button-row,
+        .findfriend-actions {
+            flex-direction: column;
+        }
+    }
 </style>
 
-
 <body>
-    <div id="interests" class="app-container interests">
-
-        <h1>Start a New Chat</h1>
-
-        <div>
-            <h1>Select Interests</h1>
+    <div id="interests" class="app-container interests chat-setup-screen">
+        <div class="top-container">
+            <div>
+                <h1 class="page-title">Start a New Chat</h1>
+                <p class="page-subtitle">Pick a few interests so we can match you with a friend.</p>
+            </div>
         </div>
 
-        <form action="" method="">
-            <input type="checkbox" value="Sports"> Sports <br>
-            <input type="checkbox" value="Music"> Music <br>
-            <input type="checkbox" value="Food"> Food <br>
-            <input type="checkbox" value="Travel"> Travel <br>
-            <input type="checkbox" value="Movies"> Movies <br>
-            <input type="checkbox" value="Technology"> Technology <br>
-            <input type="checkbox" value="Art"> Art <br>
-            <input type="checkbox" value="Fashion"> Fashion <br>
-            <input type="checkbox" value="Fitness"> Fitness <br>
-            <input type="checkbox" value="Gaming"> Gaming <br>
-            <input type="checkbox" value="Books"> Books <br>
-            <input type="checkbox" value="Nature"> Nature <br>
-            <input type="checkbox" value="Animals"> Animals <br>
-            <input type="checkbox" value="Science"> Science <br>
-        </form>
+        <div class="setup-card">
+            <h2>Select Interests</h2>
 
-        <div> 
-            <button id="backHomeBtn">Back to Home Screen</button>
-            <button type="button" id="saveBtn">Find a Friend</button>
-            
+            <form action="" method="" class="interest-grid">
+                <label class="interest-option"><input type="checkbox" value="Sports"> Sports</label>
+                <label class="interest-option"><input type="checkbox" value="Music"> Music</label>
+                <label class="interest-option"><input type="checkbox" value="Food"> Food</label>
+                <label class="interest-option"><input type="checkbox" value="Travel"> Travel</label>
+                <label class="interest-option"><input type="checkbox" value="Movies"> Movies</label>
+                <label class="interest-option"><input type="checkbox" value="Technology"> Technology</label>
+                <label class="interest-option"><input type="checkbox" value="Art"> Art</label>
+                <label class="interest-option"><input type="checkbox" value="Fashion"> Fashion</label>
+                <label class="interest-option"><input type="checkbox" value="Fitness"> Fitness</label>
+                <label class="interest-option"><input type="checkbox" value="Gaming"> Gaming</label>
+                <label class="interest-option"><input type="checkbox" value="Books"> Books</label>
+                <label class="interest-option"><input type="checkbox" value="Nature"> Nature</label>
+                <label class="interest-option"><input type="checkbox" value="Animals"> Animals</label>
+                <label class="interest-option"><input type="checkbox" value="Science"> Science</label>
+            </form>
+
+            <div class="button-row"> 
+                <button id="backHomeBtn" class="secondary-btn">Back Home</button>
+                <button type="button" id="saveBtn" class="primary-btn">Find a Friend</button>
+            </div>
         </div>
-       <ul id="savedList" class="hidden"></ul>
+
+        <ul id="savedList" class="hidden"></ul>
 
         <script>
             const saveBtn = document.getElementById('saveBtn');
             const form = document.querySelector('form');
             const savedList = document.getElementById('savedList');
 
-        
             window.onload = () => {
                 const savedItems = JSON.parse(localStorage.getItem('checkedItems')) || [];
         
@@ -89,7 +222,7 @@
                     .map(cb => cb.value);
 
                 localStorage.setItem('checkedItems', JSON.stringify(checkedItems));
-                displayFriends()
+                displayFriends();
                 displaySavedItems(checkedItems);
                 alert('Selection saved!');
             });
@@ -105,20 +238,26 @@
         </script>
     </div> 
 
-    <div id="findfriend" class="app-container hidden">
-        <h1>Pick a new friend to chat with...</h1>
-        <div id="listFriends" class="listFriends">
-            <ul id="friendList"></ul>
+    <div id="findfriend" class="app-container chat-setup-screen hidden">
+        <div class="top-container">
+            <div>
+                <h1 class="page-title">Pick a Friend</h1>
+                <p class="page-subtitle">Choose someone with shared interests to start practicing.</p>
+            </div>
+        </div>
 
+        <div class="setup-card">
+            <div id="listFriends" class="listFriends">
+                <ul id="friendList"></ul>
+            </div>
         </div>
         
-
-        <button id="startChatBtn">Start Chatting!</button>
-
-        <button id="backBtn">Back to Interests</button>
-
-       
+        <div class="findfriend-actions">
+            <button id="backBtn" class="secondary-btn">Back to Interests</button>
+            <button id="startChatBtn" class="primary-btn">Start Chatting</button>
+        </div>
     </div>
 
     <script src="script.js"></script>
 </body>
+</html>
