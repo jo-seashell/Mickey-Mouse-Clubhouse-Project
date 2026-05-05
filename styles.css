@@ -8,6 +8,7 @@ body {
 }
 .app-container 
 {
+    margin-top: 0;
     width: 100%;
     max-width: 600px;
     display: flex;
@@ -68,8 +69,9 @@ p { margin: 0; color: #606266; }
 
 .top-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center; 
+    width: 100%;
 
 }
 .top-container h1{
@@ -107,6 +109,7 @@ p { margin: 0; color: #606266; }
 }
 
 #ReviewBtn {
+    margin-top: 10px;
     height: fit-content;    
     padding: 10px 20px;
     border-radius: 30px;

@@ -8,8 +8,9 @@
         /* Independent Chat Styling */
 
         .top-container h1 {
-            font-size: 2rem; /* Scalable size for mobile */
-            margin: 0 0 40px 0; /* Only adds a small gap below the text */
+            white-space: nowrap;
+            font-size: 1.9rem;
+            margin-top: 0;
             text-align: center;
         }
 
@@ -21,7 +22,7 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
             display: flex;
-            justify-content: center;
+            justify-content: flex-start;
             flex-direction: column;
             align-items: center;
             padding: 20px;
@@ -30,7 +31,7 @@
         .chat-frame {
             width: 100%;
             max-width: 600px;
-            height: 600px;
+            height: 550px;
             background: white;
             border: 1px solid #dcdfe6;
             border-radius: 16px;
@@ -219,6 +220,16 @@
 
         .popup-word-en {
             color: #374151;
+        }
+
+        .RtnHomeBtn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #3b82f6;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
         }
 
     </style>

@@ -107,7 +107,7 @@ const saveWordBtn = document.getElementById("saveWordBtn");
 
         friendItem.innerHTML = `
             <label class="friendOption">
-                <input type="checkbox" name="selectedFriend" value="${friend.name}">
+                <input type="radio" name="selectedFriend" value="${friend.name}">
                 <span class="friend-name">${friend.name}</span>
             </label>
             <p>Language: ${friend.language}</p>
@@ -164,8 +164,6 @@ function toggleMenu() {
 
 const navLinks = [
     { btn: newChatButton, url: "newChat.html" },
-    { btn: chatFriendButton, url: "chatFriend.html" },
-    { btn: recordLiveButton, url: "recordLive.html" },
     { btn: reviewBox, url: "review.html" }
 ];
 
