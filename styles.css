@@ -339,3 +339,34 @@ p { margin: 0; color: #606266; }
     border-color: #dcdfe6;
     cursor: default;
 }
+
+.review-button-row {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.review-button-row button {
+    flex: 1;
+    padding: 12px;
+    border-radius: 10px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+#clearStorage {
+    background: #ff4444;
+    color: white;
+    border: none;
+}
+
+#homeBtn {
+    background-color: white;
+    color: black;
+    border: none;
+    padding: 15px;
+    border-radius: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 20px;
+}
