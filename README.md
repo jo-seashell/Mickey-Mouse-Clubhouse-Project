@@ -1,7 +1,4 @@
 # Mickey-Mouse-Clubhouse-Project
 CS2450 Project UIUX for group Mickey Mouse Clubhouse
 
-Mickey in the club
-Boutta hit the pub
-Let's get this dub
-Like and sub
+The 1st (and all subsuquent tasks) can be accessed from "index.html"
