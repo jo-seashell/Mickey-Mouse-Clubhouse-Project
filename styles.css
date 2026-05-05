@@ -98,6 +98,11 @@ p { margin: 0; color: #606266; }
     cursor: pointer;
 }
 
+#backBtn:hover {
+    background-color: #409eff;
+    color: white;
+}
+
 #RtnHomeBtn {
     height: fit-content;    
     padding: 10px 20px;
@@ -170,17 +175,6 @@ p { margin: 0; color: #606266; }
 .english {
     color: #007AFF;
     font-weight: 500;
-}
-
-#clearStorage {
-    background-color: #ff4d4f;
-    color: white;
-    border: none;
-    padding: 15px;
-    border-radius: 12px;
-    font-weight: bold;
-    cursor: pointer;
-    margin-top: 20px;
 }
 
 .home-screen {
@@ -355,18 +349,33 @@ p { margin: 0; color: #606266; }
 }
 
 #clearStorage {
-    background: #ff4444;
+    background-color: white;
+    color: black;
+    border: 1px solid #dcdfe6;
+    padding: 15px;
+    border-radius: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 20px; 
+}
+
+#clearStorage:hover {
+    background: #ff4d4f;
     color: white;
-    border: none;
 }
 
 #homeBtn {
     background-color: white;
     color: black;
-    border: none;
+    border: 1px solid #dcdfe6;
     padding: 15px;
     border-radius: 12px;
     font-weight: bold;
     cursor: pointer;
-    margin-top: 20px;
+    margin-top: 20px; 
+}
+
+#homeBtn:hover {
+    background-color: #409eff;
+    color: white;
 }
